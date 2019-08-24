@@ -48,7 +48,7 @@ function generateBlogPostData() {
 
 describe('BlogPost API Resource', function() {
     before(()=>{
-        return runServer(TEST_DATABASE_URL);
+        return runServer(DATABASE_URL);
     });
 
     beforeEach(()=>{
