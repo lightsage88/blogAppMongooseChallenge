@@ -58,7 +58,7 @@ describe('BlogPost API Resource', function() {
     });
 
     afterEach(()=>{
-        return tearDownDb();
+        return tearDownDb(); 
     });
 
     after(()=>{
