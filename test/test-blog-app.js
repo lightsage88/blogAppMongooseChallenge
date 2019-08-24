@@ -9,7 +9,7 @@ const expect = chai.expect;
 const should = chai.should();
 const {BlogPost} = require('../models');
 const {app, runServer, closeServer} = require('../server');
-const {TEST_DATABASE_URL} = require('../config');
+const {DATABASE_URL} = require('../config');
 
 chai.use(chaiHttp);
 
@@ -48,7 +48,7 @@ function generateBlogPostData() {
 
 describe('BlogPost API Resource', function() {
     before(()=>{
-        return runServer(TEST_DATABASE_URL);
+        return runServer(DATABASE_URL);
     });
 
     beforeEach(()=>{
