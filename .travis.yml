@@ -1,4 +1,11 @@
 language: node_js
 node_js: node
-services:
-  -mongodb
+services: "-mongodb"
+deploy:
+  provider: heroku
+  api_key:
+    secure: C1Ypl9LUEipN93RPFzDP+e11IOg/By6HOTRoiVbtKyqnaA2ehu5bFqw4d+taATtQfkrlmStqnjt+9zgxwwaCzNp9O8FGo83SerxlUBi4Q9mM/BZlRlmDJ3GpLmwgqqq6Q86N2/8mFLWEVBmTWU/K3dG1Hrun5Cnue0XrRcrTkCT9wNHOzh7a24qFLNnPNaXsVyc1qBiraGPp1idWEm8L9Io8LT9Zc4SYBGA9g1xWwf6LEHCpbE9dUoFyi/sLqxtArRV74eNDLTxUPFnh3kld9+jfeebke9fYW+wQ5eVSpPB6jttYOxg6dDgB4ohG8CTqsgEyUaK0u6lsF3nDiWNkFVIpG3muxbO2CMYOaSkgx3Iqy+KTPU7vHOaoUUb52N48kwqORlh/UvffvFqBD/Lxi3M3duVWYK1mpacF8+lGwaaxtP3aeawmS+wtMVn3gg9psUUaxjTRX3ZdXoHyohVqk057WGHF8sEmYW2u7PbEjPw/dB7wylUgu/R86b9sh9m+1sGKhybcHUfEIpAQVTp92OMujVFn9Mk5TbNfxc8KwyQkIzWa/p7EHrIA2Ltq52lYPEUoU2BdpZTui01/ujrGtpMm2kUKHo2TNdDKjezW7r0DvSMoU7trBQLc8Z1vagABYESQSFu+anY1bP3p9KoV4R48yWfFi/SY02Wue3Uc8Ww=
+  app: afternoon-badlands-93771
+  on:
+    repo: lightsage88/blogAppMongooseChallenge
+ 
