@@ -196,19 +196,19 @@ describe('BlogPost API Resource', function() {
                 .delete(`/${id}`)
                 .then(response => {
                     expect(response).to.have.status(204);
-                    expect(response.body)
-                    return id;
+                    // expect(response.body)
+                    // return id;
                 })
-                .then(deletedId => {
-                    return chai.request(app)
-                    .get(`posts/${deletedId}`)
-                    .then(response => {
-                        console.log('honorable');
-                        console.log(response.body);
-                        expect(response).to.have.status(404);
-                        expect(response.body.title).to.not.exist;
-                    })
-                })
+                // .then(deletedId => {
+                //     return chai.request(app)
+                //     .get(`posts/${deletedId}`)
+                //     .then(response => {
+                //         console.log('honorable');
+                //         console.log(response.body);
+                //         expect(response).to.have.status(404);
+                //         expect(response.body.title).to.not.exist;
+                //     })
+                // })
 
             })
 
