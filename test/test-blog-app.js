@@ -23,7 +23,6 @@ function seedBlogData() {
 }
 
 function tearDownDb() {
-    console.warn('Deleting Database');
     return new Promise((resolve, reject)=>{
         console.warn('Deleting Database');
         mongoose.connection.dropDatabase()
@@ -48,9 +47,7 @@ function generateBlogPostData() {
 
 describe('BlogPost API Resource', function() {
     before(()=>{
-
             return runServer(DATABASE_URL);
-    
     });
 
     beforeEach(()=>{
@@ -194,13 +191,14 @@ describe('BlogPost API Resource', function() {
                 return(res.body[0].id);
             })
             .then(id => {
+                let deletedId = id;
                 return chai.request(app)
                 .delete(`/${id}`)
                 .then(response => {
                     expect(response).to.have.status(204);
                     console.log(response);
                     // expect(response.body)
-                    return id;
+                    return deletedId;
                 })
                 .then(deletedId => {
                     return chai.request(app)
