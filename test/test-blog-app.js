@@ -9,7 +9,7 @@ const expect = chai.expect;
 const should = chai.should();
 const {BlogPost} = require('../models');
 const {app, runServer, closeServer} = require('../server');
-const {DATABASE_URL} = require('../config');
+const {DATABASE_URL, TEST_DATABASE_URL} = require('../config');
 
 chai.use(chaiHttp);
 
@@ -49,7 +49,7 @@ function generateBlogPostData() {
 describe('BlogPost API Resource', function() {
     before(()=>{
 
-            return runServer(DATABASE_URL);
+            return runServer(TEST_DATABASE_URL);
     
     });
 
@@ -198,19 +198,21 @@ describe('BlogPost API Resource', function() {
                 .delete(`/${id}`)
                 .then(response => {
                     expect(response).to.have.status(204);
+                    console.log(response);
                     // expect(response.body)
-                    // return id;
+                    return id;
                 })
-                // .then(deletedId => {
-                //     return chai.request(app)
-                //     .get(`posts/${deletedId}`)
-                //     .then(response => {
-                //         console.log('honorable');
-                //         console.log(response.body);
-                //         expect(response).to.have.status(404);
-                //         expect(response.body.title).to.not.exist;
-                //     })
-                // })
+                .then(deletedId => {
+                    return chai.request(app)
+                    .get(`posts/${deletedId}`)
+                    .then(response => {
+                        console.log('honorable');
+                        console.log(response);
+                        console.log(response.body);
+                        expect(response).to.have.status(404);
+                        expect(response.body.title).to.not.exist;
+                    })
+                })
 
             })
 
