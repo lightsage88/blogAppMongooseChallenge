@@ -186,8 +186,6 @@ describe('BlogPost API Resource', function() {
                 res = response;
                 expect(res).to.have.status(200);
                 expect(res.body).to.have.length.of.at.least(1);
-                console.log('cleo');
-                console.log(res.body[0].id);
                 return(res.body[0].id);
             })
             .then(id => {
@@ -196,8 +194,8 @@ describe('BlogPost API Resource', function() {
                 .delete(`/${id}`)
                 .then(response => {
                     expect(response).to.have.status(204);
-                    console.log(response);
-                    expect(response.body).to.equal({});
+                    expect(response.body).to.be.a('object');
+                    expect(response.body.id).to.be.undefined;
                 })
                 
 
