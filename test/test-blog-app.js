@@ -197,20 +197,9 @@ describe('BlogPost API Resource', function() {
                 .then(response => {
                     expect(response).to.have.status(204);
                     console.log(response);
-                    // expect(response.body)
-                    return deletedId;
+                    expect(response.body).to.equal({});
                 })
-                .then(deletedId => {
-                    return chai.request(app)
-                    .get(`posts/${deletedId}`)
-                    .then(response => {
-                        console.log('honorable');
-                        console.log(response);
-                        console.log(response.body);
-                        expect(response).to.have.status(404);
-                        expect(response.body.title).to.not.exist;
-                    })
-                })
+                
 
             })
 
